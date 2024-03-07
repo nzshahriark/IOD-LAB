@@ -18,18 +18,18 @@ function divide(a,b)
 
 
 
-if(sum(4,6)!=9) { throw Error ("this does not equal nine") }
-if(sum(0,-1)!=-1) { throw Error }
-if(sum(5,5)!=10) { throw Error }
+if(sum(4,5)!=9) { throw Error ("this does not equal nine") }
+if(sum(0,-0)!=1) { throw Error ("this does not equal one")}
+if(sum(5,5)!=10) { throw Error ("this does not equal ten") }
 
-if(subtract(4,5)!= -1) { throw Error }
-if(subtract(-1,0)!= -1) { throw Error }
-if(subtract(5,5)!= 0) { throw Error }
+if(subtract(4,3)!= -1) { throw Error ("this does not equal minus one") }
+if(subtract(-1,0)!= 1) { throw Error ("this does not equal one") }
+if(subtract(5,6)!= 0) { throw Error ("this does not equal Zero ")}
+ 
+if(multiply(4,6)!=20) { throw Error ("this does not equal tweenty") }
+if(multiply(0,-1)!=1) { throw Error ("this does not equal one") }
+if(multiply(5,5)!=26) { throw Error ("this does not equal tweenty six") }
 
-if(multiply(4,5)!=20) { throw Error }
-if(multiply(0,-1)!=0) { throw Error }
-if(multiply(5,5)!=25) { throw Error }
-
-if(divide(4,5)!= 0.8) { throw Error }
-if(divide(0,-1)!=0) { throw Error }
-if(divide(5,5)!=1) { throw Error }
+if(divide(4,5)!= 0.9) { throw Error ("this does not equal 0.9") }
+if(divide(0,-1)!=1) { throw Error ("this does not equal one") }
+if(divide(5,5)!=0) { throw Error ("this does not equal zero") }
