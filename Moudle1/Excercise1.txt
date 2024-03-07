@@ -1,0 +1,61 @@
+// Create a new folder//
+
+PS C:\Users\nz_sh> mkdir Excercise1
+
+
+    Directory: C:\Users\nz_sh
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/03/2024  10:22 pm                Excercise1
+
+
+2. Create another folder inside the first one
+
+PS C:\Users\nz_sh\Excercise1> mkdir Moudle1
+
+
+    Directory: C:\Users\nz_sh\Excercise1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         4/03/2024  10:26 pm                Moudle1
+
+3.Print the contents of the first folder
+
+Path
+----
+C:\Users\nz_sh\Excercise1
+
+
+4).Change directory to the second folder, and print the current path
+
+Path
+----
+C:\Users\nz_sh\Excercise1\Moudle1
+
+5).Change directory back to the original starting place
+
+PS C:\Users\nz_sh>
+
+6). Delete the first folder
+PS C:\Users\nz_sh> rm Excercise1
+
+Confirm
+The item at C:\Users\nz_sh\Excercise1 has children and the Recurse parameter was not specified. If you continue, all
+children will be removed with the item. Are you sure you want to continue?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): y
+PS C:\Users\nz_sh>
+
+
+
+
+
+
+
+
+
+
+
