@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lab work2</title>
+  <meta charset="utf-8">
+  <meta name="description" content ="IOD Lab Work">
+  <meta name="keywords" content ="HTML, CSS">
+  <meta name="author" content ="Shahriar">
+  <meta name="viewport" content ="width=device-width, initial-scale=1.0">
+
+  <style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style
+
+</head>
+
+<body>
+
+  <h1>My HTML learning journey</h1>
+
+  <article>
+
+    <h2>Learning elements - div, span, p, pre, ul, li, ol, article</h2>
+
+  <!-- Three divs next to each other -->
+  <div>HTML</div> 
+  <div>CSS</div> 
+  <div>JavaScript</div>
+<!-- Three spans next to each other -->
+  <span>Block</span>
+    <span>vs</span>
+    <span>Inline</span>
+
+    <!--Adding p and pre tags-->
+ <p>
+      p r epresents paragraph     without preserving      spacing
+</p>
+      <pre>
+      Text in         a pre element
+      is displayed in a fixed-width
+      font, and it preserves
+      both      spaces and
+      line breaks
+      </pre>
+      <!-- Unordered list -->
+
+      <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3
+          <ul> <li>unlisted item1</li></ul>
+          <ul> <li>unlisted item2</li></ul>
+
+        </li>
+        <li>List item 4</li>
+    </ul>
+
+    <!-- Ordered list -->
+    <ol>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ol>
+
+  </article>
+
+<article>
+<!--HTML elements - Tables - table, thead, tbody, tr, td, th-->
+<h2> 
+  <table>
+    <thead>
+    <tr>
+        <th>First header</th>
+        <th>Second header</th>
+        <th colspan="2">Third header</th> <!-- Adding a header for the third column -->
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>First cell - first row</td>
+            <td>Second cell - first row</td>
+            <!-- Adding a third cell in the first row -->
+                <td>Third cell - first row</td>
+        </tr>
+        <!-- Copying the first row and its children -->
+        <tr>
+          <td>First cell - second row</td>
+          <td>Second cell - second row</td>
+          <td>Third cell - second row</td> <!-- Adding the missing third cell -->
+      </tr>
+    </tbody>
+</table>
+
+</h2>
+</article>
+
+<article>
+  
+  <h2> 
+    
+    <img src="https://picsum.photos/400/400" alt="Random Image" width="200" height="200" />
+    <img src=" html_lab_image.jpg" alt="Image not available" width="200" height="200" />
+    <video controls width="250">
+    <source src="/assets/flower.webm" type="video/webm">
+    Sorry, your browser doesn't support embedded videos.
+</video>
+
+<!-- Audio element with caption using figure and figcaption -->
+    <figure>
+        <audio controls src="/assets/t-rex-roar.mp3">
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+        <figcaption>Caption: T-Rex Roar</figcaption>
+    </figure>
+
+    <!-- Audio element with autoplay and caption using figure and figcaption -->
+    <figure>
+        <audio autoplay src="/assets/t-rex-roar.mp3">
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+        <figcaption>Caption: T-Rex Roar</figcaption>
+    </figure>
+
+    <!-- Video element with autoplay and caption using figure and figcaption -->
+    <figure>
+        <video autoplay width="320" height="240">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the <code>video</code> element.
+        </video>
+        <figcaption>Caption: Big Buck Bunny Video</figcaption>
+    </figure>
+
+
+    <!-- HTML elements - Forms - form, input, label, select, option, button -->
+
+    <form method="POST" action="http://127.0.0.1:5500/form.html">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
+        </div>
+        <input type="submit" value="Submit">
+
+        <!-- Radio buttons for favorite coding language -->
+        <div class="form-group">
+            <label>Favorite Coding Language:</label><br>
+            <input type="radio" id="javascript" name="codingLanguage" value="JavaScript">
+            <label for="javascript">JavaScript</label><br>
+            <input type="radio" id="python" name="codingLanguage" value="Python">
+            <label for="python">Python</label><br>
+            <input type="radio" id="java" name="codingLanguage" value="Java">
+            <label for="java">Java</label><br>
+        </div>
+
+        <input type="submit" value="Submit">
+
+        <!-- Checkboxes for types of vehicles -->
+        <div class="form-group">
+            <label>Types of Vehicles Owned:</label><br>
+            <input type="checkbox" id="car" name="vehicleType" value="Car">
+            <label for="car">Car</label><br>
+            <input type="checkbox" id="bike" name="vehicleType" value="Bike">
+            <label for="bike">Bike</label><br>
+            <input type="checkbox" id="truck" name="vehicleType" value="Truck">
+            <label for="truck">Truck</label><br>
+        </div>
+
+        <!-- Dropdown for car brand -->
+        <div class="form-group">
+            <label for="carBrand">Car Brand:</label>
+            <select id="carBrand" name="carBrand">
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="BMW">BMW</option>
+            </select>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit">Submit form</button>
+    </form>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="form.html">Form</a>
+    </nav>
+    </h2>
+  
+  </article>
+
+  <header>
+    <nav>
+      <!-- works like <a href="/index.html">Home</a> -->
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+  <main>  
+  </main>
+
+  <footer>Copyright &copy; 2024</footer>
+</body>
+
+</html>

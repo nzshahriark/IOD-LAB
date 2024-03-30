@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+
+    /* Type Selector */
+article {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+/* Class Selector */
+.style-me1 {
+  color: red;
+}
+
+/* ID Selector */
+#style-me2 {
+  color: blue;
+}
+
+/* Specific Selector */
+.style-me1#style-me2 {
+  color: purple;
+}
+
+/* Descendant Combinator */
+.my-descendants-are-styled p {
+  background-color: red;
+}
+
+/* Child Combinator */
+.my-children-are-styled > p {/* Descendant Combinator */
+.my-descendants-are-styled p {
+  background-color: red;
+}
+
+/* Child Combinator */
+.my-children-are-styled > p {
+  background-color: lightgreen;
+}
+  background-color: lightgreen;
+}
+  </style>
+</head>
+    <link rel="stylesheet" href="index.css">
+    <title>Module 2 - CSS Lab Exercises</title>
+
+    <!-- 5.3 - Select the <link> option from ‘Use on the web’ and copy the stylesheet code into the <head> section of index.html -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">    
+  </head>
+  <body>
+    <h1>My CSS journey</h1>
+
+    <article>
+
+    
+      <h2>I. Selectors</h2>
+
+      <section>
+        <p class="style-me1">
+          1.2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <p id="style-me2">
+          1.3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <p id="style-me2" class="style-me1">
+          1.4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </section>
+
+      <section class="my-children-are-styled">
+        <h3>2.1 Direct &lt;p&gt; children are styled</h3>
+        <div>
+          <p>P1: I'm not a direct child, but I am a descendant</p>
+        </div>
+        <p>P2: I'm a direct child, therefore I'm a descendant too</p>
+      </section>
+
+      <section class="my-descendants-are-styled">
+        <h3>2.2 All descendants &lt;p&gt; are styled</h3>
+        <div>
+          <p>P1: I'm not a direct child, but I am a descendant</p>
+        </div>
+        <p>P2: I'm a direct child, therefore I'm a descendant too</p>
+      </section>
+    </article>
+
+    <article>
+
+      <style>
+        
+        /* Set background color for .box */
+.box {
+  background-color: lightblue;
+}
+
+/* Different margin and padding syntaxes */
+/* 4-value syntax */
+.box-four-values {
+  margin: 10px 20px 15px 25px; /* top right bottom left */
+  padding: 5px 15px 10px 20px; /* top right bottom left */
+}
+
+/* 2-value syntax */
+.box-two-values {
+  margin: 30px 10px; /* vertical horizontal */
+  padding: 20px 5px; /* vertical horizontal */
+}
+
+/* 1-value syntax */
+.box-one-value {
+  margin: 15px; /* all sides */
+  padding: 10px; /* all sides */
+}
+
+/* Set width and height using different units */
+.box-width-height {
+  width: 200px; /* pixels */
+  height: 10rem; /* rem */
+}
+
+.box-vh-vw {
+  width: 50vw; /* viewport width */
+  height: 50vh; /* viewport height */
+}
+
+.box-style-attribute {
+  width: 300px !important; /* Override with !important */
+  height: 200px !important; /* Override with !important */
+}
+
+
+/* Set a border */
+.box-border {
+  border: 10px solid #ff0000; /* 10px thick solid red border */
+}
+
+/* Box sizing */
+.box-box-sizing {
+  box-sizing: border-box; /* content-box | border-box */
+}
+
+/* Overflow */
+.box-overflow {
+  width: 100px;
+  height: 50px;
+  overflow: visible; /* visible | hidden | scroll | auto */
+}
+
+/* Add an outline */
+.box-outline {
+  outline: 10px solid green; /* 10px thick solid green outline */
+}
+
+/* Border radius */
+.box-border-radius {
+  border-radius: 20px; /* 20px border radius */
+}
+
+/* Background image */
+.box-background-image {
+  background-image: url("./assets/images/img1.png");
+  background-size: cover; /* cover | contain | auto */
+  background-repeat: no-repeat; /* no-repeat | repeat | repeat-x | repeat-y */
+  background-position: center; /* center | top | bottom | left | right | x% y% */
+}
+        
+        
+        </style>
+
+      
+      <h2>II. Box model and common properties</h2>
+      <div class="box">I'm the first box.</div>
+      <div class="box">
+        I'm second and I have a lot of content. In publishing and graphic
+        design, Lorem ipsum is a placeholder text commonly used to demonstrate
+        the visual form of a document or a typeface without relying on
+        meaningful content. "Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+        qui officia deserunt mollit anim id est laborum."
+      </div>
+      <div class="box" style="height: 200px">
+        My height is set using directly using style attribute.
+      </div>
+    </article>
+
+    <article>
+
+      <style>
+
+/* Apply absolute position on .position-absolute */
+.position-absolute {
+  position: absolute;
+  background-color: lightgray; /* Add a background color for visibility */
+}
+
+/* Fix the element to the top of the page */
+.position-top {
+  top: 0;
+}
+
+/* Fix the element to the bottom of the page */
+.position-bottom {
+  bottom: 0;
+}
+
+/* Set relative position on .position-relative */
+.position-relative {
+  position: relative;
+  background-color: lightblue; /* Add a different background color */
+}
+
+/* Apply absolute position on .position-absolute */
+.position-absolute {
+  position: absolute;
+  background-color: lightgray; /* Add a background color for visibility */
+}
+
+/* Add left position value */
+.position-left {
+  left: 50px;
+}
+
+/* Add right position value */
+.position-right {
+  right: 50px;
+}
+
+/* Set sticky position on .position-sticky */
+.position-sticky {
+  position: sticky;
+  top: 20px; /* Change the 'stick' position */
+  background-color: lightgreen; /* Add a different background color */
+}
+
+/* Set font color using color rule */
+.text-style {
+  color: blue; /* Change the font color */
+}
+
+/* Add font size rule */
+.text-style {
+  font-size: 18px; /* Experiment with different sizes and units */
+}
+
+/* Add line height rule */
+.text-style {
+  line-height: 1.5; /* Experiment with different values and units */
+}
+
+/* Add font weight rule */
+.text-style {
+  font-weight: bold; /* Experiment with keyword and number values */
+}
+
+/* Text alignment */
+.text-style {
+  text-align: center; /* Experiment with different values like left, right, center, justify */
+}
+
+/* Letter spacing */
+.text-style {
+  letter-spacing: 2px; /* Experiment with different values using px units */
+}
+
+/* Word spacing */
+.text-style {
+  word-spacing: 5px; /* Experiment with different values using px units */
+}
+
+/* Text transformation */
+.text-style {
+  text-transform: uppercase; /* Experiment with different values like lowercase, capitalize */
+}
+
+/* Text decoration */
+.text-style {
+  text-decoration: underline; /* Experiment with different values like underline, overline, line-through */
+}
+/* Reset default link styles */
+a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
+
+/* Style link in its untouched form */
+a:link {
+  color: blue; /* Change link color */
+}
+
+/* Style visited link */
+a:visited {
+  color: purple; /* Change visited link color */
+}
+
+/* Style link when hovered with a cursor */
+a:hover {
+  color: red; /* Change link color on hover */
+}
+
+/* Style link when active (clicked) */
+a:active {
+  color: green; /* Change link color when active */
+}
+
+/* Style link when focused */
+a:focus {
+  outline: 2px solid yellow; /* Add an outline when link is focused */
+}
+
+/* Style all links in their default state */
+a,
+a:link {
+  color: blue; /* Set font color for links */
+  font-size: 16px; /* Modify font size for links */
+  font-weight: normal; /* Modify font weight for links */
+  text-decoration: underline; /* Add underline to links */
+}
+
+/* Override link color and font style for specific links */
+a.special-link {
+  color: red !important; /* Override link color */
+  font-style: italic !important; /* Set font style to italic */
+}
+
+
+      </style>
+      
+      <h2>III. Positioning</h2>
+      <div class="position-absolute">I'm absolutely positioned.</div>
+
+      <div class="position-relative">
+        I'm relatively positioned.
+        <div class="position-absolute">I'm absolutely positioned inside a relative container.</div>
+      </div>
+    </article>
+    <div class="position-sticky">I'm sticky positioned.</div>
+
+    <article>
+
+      <style>
+
+        /* Add fixed width rule to .calc-style */
+.calc-style {
+  width: 100vw; /* Set width to 100% of viewport width */
+  background-color: lightblue; /* Add background color for visibility */
+}
+
+/* Add new width rule using calc() */
+.calc-style {
+  width: calc(100vw - 100px); /* Calculate width as 100% of viewport width minus 100px */
+}
+
+/* Set width and display for .fixed-width-col */
+.fixed-width-col {
+  width: 350px; /* Set fixed width */
+  display: inline-block; /* Display inline-block */
+}
+
+/* Set display for .fluid-col */
+.fluid-col {
+  display: inline-block; /* Display inline-block */
+  width: calc(100% - 350px); /* Calculate width dynamically */
+}
+      </style>
+      <h2>IV. Styling text</h2>
+      <p class="text-style">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </p>
+    </article>
+
+    <article>
+
+      
+      <h2>V. Styling links</h2>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links"
+        alt="Styling links with Mozilla"
+        >Styling links (Mozilla)</a
+      >
+    </article>
+
+    <article>
+
+      
+      <h2>VI. calc()</h2>
+      <div class="calc-style">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </div>
+
+      <div class="calc-row">
+        <div class="fixed-width-col"><img src="assets/images/img1.png" width="300"/></div>
+        <div class="fluid-col">This text should expand to fill 'the rest' of the page width not used by the image inside the fixed-width-col.
+          This text should expand to fill 'the rest' of the page width not used by the image inside the fixed-width-col.
+          This text should expand to fill 'the rest' of the page width not used by the image inside the fixed-width-col.
+        </div>
+      </div>
+    </article>
+
+    <div style="height: 1000px; background: #AA99CC">
+      I'm here just for height, to fill in extra space and pretend that the website is longer than it really is :).
+    </div>
+  </body>
+</html>
