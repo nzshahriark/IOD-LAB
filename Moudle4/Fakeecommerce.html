@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Store</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for custom icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Menu -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" onclick="navigateTo('home')">Fake Store</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" onclick="navigateTo('home')">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="navigateTo('categories')">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="navigateTo('contact')">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    <h1 class="mb-4">Fake Store</h1>
+    
+    <!-- Category Dropdown -->
+    <div class="mb-3">
+      <label for="category-select" class="form-label">Select Category:</label>
+      <select id="category-select" class="form-select" onchange="filterProducts()">
+        <option value="">All Categories</option>
+        <option value="electronics">Electronics</option>
+        <option value="jewelery">Jewelery</option>
+        <option value="men's clothing">Men's Clothing</option>
+        <option value="women's clothing">Women's Clothing</option>
+      </select>
+    </div>
+
+    <!-- Sorting Dropdown -->
+    <div class="mb-3">
+      <label for="sort-select" class="form-label">Sort By:</label>
+      <select id="sort-select" class="form-select" onchange="filterProducts()">
+        <option value="default">Default</option>
+        <option value="price-asc">Price (Low to High)</option>
+        <option value="price-desc">Price (High to Low)</option>
+        <option value="title-asc">Title (A to Z)</option>
+        <option value="title-desc">Title (Z to A)</option>
+      </select>
+    </div>
+
+    <!-- Search Input -->
+    <div class="mb-3">
+      <input type="text" id="search-input" class="form-control" placeholder="Search items" oninput="filterProducts()">
+    </div>
+
+    <div class="row" id="product-list">
+      <!-- Product cards will be dynamically generated here -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Fetch API -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Function to navigate to different sections
+    function navigateTo(section) {
+      switch (section) {
+        case 'home':
+          // Load home content
+          document.getElementById('product-list').innerHTML = ''; // Clear product list
+          break;
+        case 'categories':
+          // Load categories content
+          filterProducts(); // Filter products based on category selection
+          break;
+        case 'contact':
+          // Load contact content
+          document.getElementById('product-list').innerHTML = '<h2>Contact Us</h2><p>You can reach us at example@example.com.</p>';
+          break;
+      }
+    }
+
+    // Function to fetch data from Fake Store API and display products
+    function filterProducts() {
+      const category = document.getElementById('category-select').value.toLowerCase();
+      const searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
+      const sortBy = document.getElementById('sort-select').value;
+
+      fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then(data => {
+          const productList = document.getElementById('product-list');
+          productList.innerHTML = ''; // Clear previous cards
+
+          data = applySorting(data, sortBy);
+
+          data.forEach(product => {
+            if (
+              (category === '' || product.category.toLowerCase() === category) &&
+              (searchTerm === '' || product.title.toLowerCase().includes(searchTerm))
+            ) {
+              const card = `
+                <div class="col-md-4 mb-4">
+                  <div class="card">
+                    <img src="${product.image}" class="card-img-top" alt="${product.title}">
+                    <div class="card-body">
+                      <h5 class="card-title">${product.title}</h5>
+                      <p class="card-text">$${product.price}</p>
+                      <p class="card-text">${product.description}</p>
+                      <button class="btn btn-primary" onclick="showDetails(${product.id})">View Details</button>
+                    </div>
+                    <div class="card-footer">
+                      <i class="fas fa-tag"></i> ${product.category}
+                    </div>
+                  </div>
+                </div>
+              `;
+              productList.innerHTML += card;
+            }
+          });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Function to apply sorting based on user selection
+    function applySorting(data, sortBy) {
+      switch (sortBy) {
+        case 'price-asc':
+          return data.sort((a, b) => a.price - b.price);
+        case 'price-desc':
+          return data.sort((a, b) => b.price - a.price);
+        case 'title-asc':
+          return data.sort((a, b) => a.title.localeCompare(b.title));
+        case 'title-desc':
+          return data.sort((a, b) => b.title.localeCompare(a.title));
+        default:
+          return data;
+      }
+    }
+
+    // Function to show details of a specific product
+    function showDetails(productId) {
+      fetch(`https://fakestoreapi.com/products/${productId}`)
+        .then(response => response.json())
+        .then(product => {
+          alert(`Product Details:\nTitle: ${product.title}\nPrice: $${product.price}\nDescription: ${product.description}`);
+        })
+        .catch(error => console.error('Error fetching product details:', error));
+    }
+
+    // Initial call to load products
+    filterProducts();
+  </script>
+</body>
+</html>
+
