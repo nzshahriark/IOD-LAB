@@ -20,9 +20,9 @@ undefined === null // Output: false
 
 // 2. Which of the below are not giving the right answer? Why are they not correct? How can we fix them?
 
-let three = "3"
-let four = "4"
-let thirty = "30"
+let three = 3
+let four = 4
+let thirty = 30
 //what is the value of the following expressions?
 let addition = three + four // This will concatenate the strings "3" and "4" to produce "34"
 let multiplication = three * four// NaN
